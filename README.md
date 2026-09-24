@@ -65,6 +65,14 @@ Perpustakaan Daerah
     └── Laporan / PDF
 ```
 
+## 🗃️ Relasi Database
+
+Diagram berikut menggambarkan relasi utama pada database perpustakaan, terutama hubungan antara anggota, buku, kategori, penerbit, rak, user/petugas, dan transaksi peminjaman.
+
+![Diagram Relasi Database](./docs/database-erd.svg)
+
+> Sumber skema database: [`admin/database.sql`](./admin/database.sql)
+
 ## 🚀 Menjalankan Project
 
 ### Persyaratan
@@ -100,6 +108,8 @@ perppus_daerahukk/
 │   ├── pinjam.php                 # Peminjaman
 │   ├── pengembalian.php           # Pengembalian
 │   └── ...
+├── docs/
+│   └── database-erd.svg           # Diagram relasi database
 ├── Screenshot 2026-08-28 085937.png
 ├── DOKUMENTASI_PERPUSTAKAAN_DAERAH_VERSI1.pdf
 └── README.md

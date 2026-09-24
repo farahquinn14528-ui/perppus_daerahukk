@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">Diagram Relasi Database Perpustakaan Daerah</title>
+  <desc id="desc">Diagram relasi tabel utama sistem perpustakaan daerah.</desc>
+  <defs>
+    <style>
+      .box{fill:#f8fafc;stroke:#2563eb;stroke-width:2;rx:8}
+      .head{fill:#2563eb}
+      .title{font:700 16px Arial;fill:#fff}
+      .field{font:13px Arial;fill:#1e293b}
+      .line{stroke:#64748b;stroke-width:2;fill:none}
+      .label{font:12px Arial;fill:#475569;background:#fff}
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#64748b"/></marker>
+  </defs>
+  <rect width="1200" height="820" fill="#ffffff"/>
+  <text x="600" y="35" text-anchor="middle" font="700 24px Arial" fill="#0f172a">ERD Perpustakaan Daerah</text>
+
+  <g transform="translate(40 80)"><rect class="box" width="220" height="120"/><rect class="head" width="220" height="34"/><text class="title" x="110" y="23" text-anchor="middle">tb_kategori</text><text class="field" x="14" y="58">🔑 id_kategori</text><text class="field" x="14" y="80">nama_kategori</text><text class="field" x="14" y="102">keterangan</text></g>
+  <g transform="translate(40 270)"><rect class="box" width="220" height="120"/><rect class="head" width="220" height="34"/><text class="title" x="110" y="23" text-anchor="middle">tb_penerbit</text><text class="field" x="14" y="58">🔑 id_penerbit</text><text class="field" x="14" y="80">nama_penerbit</text><text class="field" x="14" y="102">alamat, telepon, email</text></g>
+  <g transform="translate(40 460)"><rect class="box" width="220" height="120"/><rect class="head" width="220" height="34"/><text class="title" x="110" y="23" text-anchor="middle">tb_rak</text><text class="field" x="14" y="58">🔑 id_rak</text><text class="field" x="14" y="80">nama_rak</text><text class="field" x="14" y="102">lokasi</text></g>
+  <g transform="translate(350 205)"><rect class="box" width="260" height="180"/><rect class="head" width="260" height="34"/><text class="title" x="130" y="23" text-anchor="middle">tb_buku</text><text class="field" x="14" y="58">🔑 id_buku</text><text class="field" x="14" y="80">isbn, judul_buku</text><text class="field" x="14" y="102">🔗 id_kategori</text><text class="field" x="14" y="124">🔗 id_penerbit</text><text class="field" x="14" y="146">🔗 id_rak</text><text class="field" x="14" y="168">stok_buku, kondisi</text></g>
+  <g transform="translate(710 100)"><rect class="box" width="230" height="150"/><rect class="head" width="230" height="34"/><text class="title" x="115" y="23" text-anchor="middle">tb_anggota</text><text class="field" x="14" y="58">🔑 id_anggota</text><text class="field" x="14" y="80">nomor_anggota</text><text class="field" x="14" y="102">nama_lengkap, email</text><text class="field" x="14" y="124">role, status</text></g>
+  <g transform="translate(710 350)"><rect class="box" width="230" height="150"/><rect class="head" width="230" height="34"/><text class="title" x="115" y="23" text-anchor="middle">tb_user</text><text class="field" x="14" y="58">🔑 id_user</text><text class="field" x="14" y="80">nama_user</text><text class="field" x="14" y="102">username</text><text class="field" x="14" y="124">level, status</text></g>
+  <g transform="translate(350 520)"><rect class="box" width="300" height="190"/><rect class="head" width="300" height="34"/><text class="title" x="150" y="23" text-anchor="middle">tb_peminjaman</text><text class="field" x="14" y="58">🔑 id_peminjaman</text><text class="field" x="14" y="80">kode_peminjaman</text><text class="field" x="14" y="102">🔗 id_anggota</text><text class="field" x="14" y="124">🔗 id_buku</text><text class="field" x="14" y="146">🔗 id_user / diproses_oleh</text><text class="field" x="14" y="168">tanggal, status, denda</text></g>
+  <g transform="translate(1010 130)"><rect class="box" width="150" height="125"/><rect class="head" width="150" height="34"/><text class="title" x="75" y="23" text-anchor="middle">tb_sesi_login</text><text class="field" x="12" y="58">🔑 id_sesi</text><text class="field" x="12" y="80">🔗 id_anggota</text><text class="field" x="12" y="102">token_hash</text></g>
+  <g transform="translate(1010 350)"><rect class="box" width="150" height="145"/><rect class="head" width="150" height="34"/><text class="title" x="75" y="23" text-anchor="middle">tb_notifikasi</text><text class="field" x="12" y="58">🔑 id_notifikasi</text><text class="field" x="12" y="80">🔗 id_target_user</text><text class="field" x="12" y="102">🔗 id_target_staff</text><text class="field" x="12" y="124">tipe, pesan</text></g>
+
+  <path class="line" marker-end="url(#arrow)" d="M260 140 C300 140 300 270 350 270"/><path class="line" marker-end="url(#arrow)" d="M260 330 C300 330 300 315 350 315"/><path class="line" marker-end="url(#arrow)" d="M260 520 C310 520 310 350 350 350"/>
+  <path class="line" marker-end="url(#arrow)" d="M480 385 C480 445 500 475 500 520"/><path class="line" marker-end="url(#arrow)" d="M710 175 C650 175 650 580 650 580"/><path class="line" marker-end="url(#arrow)" d="M710 425 C670 425 670 640 650 640"/>
+  <path class="line" marker-end="url(#arrow)" d="M940 175 L1010 190"/><path class="line" marker-end="url(#arrow)" d="M940 425 L1010 425"/>
+  <text class="label" x="285" y="132">1 : N</text><text class="label" x="285" y="315">1 : N</text><text class="label" x="300" y="475">1 : N</text><text class="label" x="515" y="450">1 : N</text><text class="label" x="665" y="165">1 : N</text><text class="label" x="675" y="470">1 : N</text>
+</svg>

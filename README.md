@@ -1,376 +1,170 @@
-PERPUSTAKAAN-DAERAH-V5/
-│
-├── app/
-│   ├── Core/
-│   │   ├── Application.php
-│   │   ├── Router.php
-│   │   ├── Request.php
-│   │   ├── Response.php
-│   │   ├── Session.php
-│   │   ├── Auth.php
-│   │   ├── CSRF.php
-│   │   ├── Validator.php
-│   │   ├── Database.php
-│   │   ├── Cache.php
-│   │   └── Logger.php
-│   │
-│   ├── Config/
-│   │   ├── app.php
-│   │   ├── database.php
-│   │   ├── security.php
-│   │   └── permissions.php
-│   │
-│   ├── Controllers/
-│   │   ├── AuthController.php
-│   │   ├── DashboardController.php
-│   │   ├── CatalogController.php
-│   │   ├── BookController.php
-│   │   ├── LoanController.php
-│   │   ├── ReturnController.php
-│   │   ├── MemberController.php
-│   │   ├── NotificationController.php
-│   │   ├── RatingController.php
-│   │   ├── BadgeController.php
-│   │   ├── ContentController.php
-│   │   └── ProfileController.php
-│   │
-│   ├── Models/
-│   │   ├── User.php
-│   │   ├── Member.php
-│   │   ├── Book.php
-│   │   ├── Category.php
-│   │   ├── Author.php
-│   │   ├── Publisher.php
-│   │   ├── Loan.php
-│   │   ├── ReturnTransaction.php
-│   │   ├── Rating.php
-│   │   ├── Notification.php
-│   │   ├── Badge.php
-│   │   └── Content.php
-│   │
-│   ├── Services/
-│   │   ├── AuthService.php
-│   │   ├── BookService.php
-│   │   ├── LoanService.php
-│   │   ├── ReturnService.php
-│   │   ├── FineService.php
-│   │   ├── NotificationService.php
-│   │   ├── RatingService.php
-│   │   ├── BadgeService.php
-│   │   └── ContentService.php
-│   │
-│   ├── Repositories/
-│   │   ├── UserRepository.php
-│   │   ├── BookRepository.php
-│   │   ├── LoanRepository.php
-│   │   ├── MemberRepository.php
-│   │   └── NotificationRepository.php
-│   │
-│   ├── Middleware/
-│   │   ├── AuthMiddleware.php
-│   │   ├── GuestMiddleware.php
-│   │   ├── AdminMiddleware.php
-│   │   ├── CSRFMiddleware.php
-│   │   ├── RateLimitMiddleware.php
-│   │   └── SecurityMiddleware.php
-│   │
-│   ├── Helpers/
-│   │   ├── auth.php
-│   │   ├── url.php
-│   │   ├── format.php
-│   │   ├── validation.php
-│   │   └── security.php
-│   │
-│   └── Exceptions/
-│       ├── AuthException.php
-│       ├── DatabaseException.php
-│       ├── ValidationException.php
-│       └── LoanException.php
-│
-├── routes/
-│   ├── web.php
-│   ├── api.php
-│   ├── auth.php
-│   └── admin.php
-│
-├── public/
+# Perpustakaan Daerah UKK
+
+Sistem informasi perpustakaan daerah berbasis PHP dan MySQL untuk mengelola katalog buku, peminjaman, pengembalian, anggota, notifikasi, dan administrasi perpustakaan secara terstruktur.
+
+Project utama berada di folder `admin/` dan dirancang untuk kebutuhan operasional perpustakaan daerah dengan fitur CRUD, laporan sederhana, serta antarmuka web yang mudah digunakan.
+
+## Fitur utama
+
+- Katalog buku dan pencarian buku
+- Peminjaman dan pengembalian buku
+- Manajemen anggota / akun pengguna
+- Dashboard admin dan statistik umum
+- Sistem notifikasi dan badge/achievement
+- Rating dan komentar buku
+- Pengelolaan informasi, bantuan, dan profil
+- Dokumentasi proyek dan database yang tersedia di dalam repo
+
+## Teknologi yang digunakan
+
+- PHP 8+
+- MySQL / MariaDB
+- HTML5
+- CSS3
+- JavaScript / jQuery
+- Bootstrap
+- Apache / XAMPP
+
+## Struktur repository
+
+```text
+perppus_daerahukk/
+├── admin/                              # Aplikasi utama (PHP)
+│   ├── .htaccess
+│   ├── README.md
+│   ├── akun.php
+│   ├── badge.php
+│   ├── database.sql
+│   ├── detail_buku.php
+│   ├── help.php
 │   ├── index.php
+│   ├── informasi.php
+│   ├── katalog_buku.php
+│   ├── landing.php
 │   ├── login.php
+│   ├── pengembalian.php
+│   ├── pinjam.php
+│   ├── proses_pinjam.php
 │   ├── register.php
-│   ├── logout.php
-│   │
-│   ├── assets/
-│   │   ├── css/
-│   │   │   ├── core/
-│   │   │   ├── components/
-│   │   │   ├── layouts/
-│   │   │   ├── pages/
-│   │   │   ├── themes/
-│   │   │   └── utilities/
-│   │   │
-│   │   ├── js/
-│   │   │   ├── core/
-│   │   │   ├── components/
-│   │   │   ├── pages/
-│   │   │   ├── services/
-│   │   │   └── utils/
-│   │   │
-│   │   ├── images/
-│   │   │   ├── books/
-│   │   │   ├── banners/
-│   │   │   ├── logos/
-│   │   │   ├── avatars/
-│   │   │   └── icons/
-│   │   │
-│   │   └── fonts/
-│   │
-│   └── uploads/
-│       ├── books/
-│       ├── avatars/
-│       ├── banners/
-│       └── documents/
-│
-├── resources/
-│   ├── views/
-│   │   ├── layouts/
-│   │   │   ├── main.php
-│   │   │   ├── auth.php
-│   │   │   ├── dashboard.php
-│   │   │   └── admin.php
-│   │   │
-│   │   ├── components/
-│   │   │   ├── navbar.php
-│   │   │   ├── sidebar.php
-│   │   │   ├── drawer.php
-│   │   │   ├── book-card.php
-│   │   │   ├── notification.php
-│   │   │   ├── modal.php
-│   │   │   ├── toast.php
-│   │   │   └── pagination.php
-│   │   │
-│   │   ├── landing/
-│   │   │   ├── index.php
-│   │   │   ├── hero.php
-│   │   │   ├── featured-books.php
-│   │   │   ├── statistics.php
-│   │   │   └── library-video.php
-│   │   │
-│   │   ├── catalog/
-│   │   │   ├── index.php
-│   │   │   ├── detail.php
-│   │   │   ├── search.php
-│   │   │   └── filters.php
-│   │   │
-│   │   ├── loans/
-│   │   │   ├── index.php
-│   │   │   ├── borrow.php
-│   │   │   ├── history.php
-│   │   │   └── detail.php
-│   │   │
-│   │   ├── returns/
-│   │   │   ├── index.php
-│   │   │   └── history.php
-│   │   │
-│   │   ├── profile/
-│   │   │   ├── index.php
-│   │   │   ├── edit.php
-│   │   │   └── badges.php
-│   │   │
-│   │   ├── notifications/
-│   │   │   └── index.php
-│   │   │
-│   │   ├── ratings/
-│   │   │   └── index.php
-│   │   │
-│   │   ├── help/
-│   │   │   └── index.php
-│   │   │
-│   │   └── errors/
-│   │       ├── 404.php
-│   │       ├── 403.php
-│   │       └── 500.php
-│   │
-│   └── lang/
-│       ├── id/
-│       └── jv/
-│
-├── api/
-│   ├── v1/
-│   │   ├── auth/
-│   │   ├── books/
-│   │   ├── loans/
-│   │   ├── members/
-│   │   ├── notifications/
-│   │   ├── ratings/
-│   │   └── content/
-│   │
-│   └── v2/
-│       └── ...
-│
-├── database/
-│   ├── schema/
-│   │   ├── users.sql
-│   │   ├── members.sql
-│   │   ├── books.sql
-│   │   ├── loans.sql
-│   │   ├── returns.sql
-│   │   ├── ratings.sql
-│   │   ├── notifications.sql
-│   │   └── badges.sql
-│   │
-│   ├── migrations/
-│   │   ├── 001_initial.sql
-│   │   ├── 002_badges.sql
-│   │   ├── 003_notifications.sql
-│   │   ├── 004_ratings.sql
-│   │   └── 005_v5.sql
-│   │
-│   ├── seeds/
-│   │   ├── books.sql
-│   │   ├── users.sql
-│   │   └── demo.sql
-│   │
-│   ├── procedures/
-│   ├── triggers/
-│   └── database.sql
-│
-├── storage/
-│   ├── cache/
-│   ├── logs/
-│   ├── sessions/
-│   └── temp/
-│
-├── tests/
-│   ├── Unit/
-│   │   ├── AuthTest.php
-│   │   ├── BookTest.php
-│   │   ├── LoanTest.php
-│   │   └── FineTest.php
-│   │
-│   ├── Integration/
-│   │   ├── DatabaseTest.php
-│   │   └── LoanFlowTest.php
-│   │
-│   └── Security/
-│       ├── CSRFAttackTest.php
-│       ├── SQLInjectionTest.php
-│       └── RateLimitTest.php
-│
-├── docs/
-│   ├── architecture/
-│   ├── database/
-│   ├── api/
-│   ├── security/
-│   └── deployment/
-│
-├── scripts/
-│   ├── migrate.php
-│   ├── seed.php
-│   ├── backup.php
-│   ├── clear-cache.php
-│   └── health-check.php
-│
-├── config/
-│   ├── .env.example
-│   └── app.php
-│
-├── .env
-├── .env.example
-├── .gitignore
-├── .htaccess
-├── composer.json
-├── phpunit.xml
+│   ├── riwayat_peminjaman.php
+│   ├── ...
+│   └── migrasi_*.sql
+├── DOKUMENTASI_PERPUSTAKAAN_DAERAH_VERSI1.pdf
+├── Screenshot 2026-08-28 085937.png
 ├── README.md
-└── CHANGELOG.md
+└── .gitignore
+```
 
+## Persyaratan
 
-                    ┌─────────────────────┐
-                    │      BROWSER        │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │       ROUTES        │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    MIDDLEWARE       │
-                    │ Auth / CSRF / Rate  │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    CONTROLLER       │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │      SERVICE        │
-                    │ Business Logic      │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    REPOSITORY       │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   MYSQL/MARIADB     │
-                    └─────────────────────┘
+Sebelum menjalankan proyek, pastikan lingkungan berikut sudah tersedia:
 
-                               ▲
-                               │
-                    ┌──────────┴──────────┐
-                    │       MODEL         │
-                    └─────────────────────┘
+- PHP 8.0 atau lebih tinggi
+- MySQL 5.7+ atau MariaDB 10.3+
+- Apache / XAMPP
+- Browser modern (Chrome, Edge, Firefox)
 
+## Cara menjalankan
 
+### 1. Clone atau unduh repository
 
+```bash
+git clone https://github.com/farahquinn14528-ui/perppus_daerahukk.git
+```
 
+### 2. Siapkan server lokal
 
+Buka XAMPP Control Panel, lalu aktifkan:
 
+- Apache
+- MySQL
 
+### 3. Buat database
 
-Dashboard
-├── Beranda
-├── Katalog Buku
-│   ├── Semua Buku
-│   ├── Kategori
-│   ├── Pencarian
-│   └── Detail Buku
-│
-├── Peminjaman
-│   ├── Pinjam Buku
-│   ├── Peminjaman Aktif
-│   └── Riwayat Peminjaman
-│
-├── Pengembalian
-│   └── Riwayat Pengembalian
-│
-├── Notifikasi
-├── Rating & Komentar
-├── Badge / Achievement
-├── Informasi
-├── Bantuan
-└── Profil
+Buka phpMyAdmin, lalu buat database baru dengan nama misalnya:
 
+```sql
+perpustakaan_daerah
+```
 
-landing.php
-login.php
-register.php
-katalog_buku.php
-detail_buku.php
-pinjam.php
-proses_pinjam.php
-pengembalian.php
-riwayat_peminjaman.php
-akun.php
-badge.php
-informasi.php
-help.php
+Kemudian import file SQL pada folder `admin/database.sql`.
 
+### 4. Jalankan aplikasi
 
+Letakkan folder `admin/` ke direktori web server, misalnya:
 
-                    
+```text
+C:\xampp\htdocs\perppus_daerahukk\
+```
+
+Lalu buka browser ke:
+
+```text
+http://localhost/perppus_daerahukk/
+```
+
+Jika aplikasi berjalan dari folder `admin/` secara langsung, biasanya URL menjadi:
+
+```text
+http://localhost/perppus_daerahukk/admin/
+```
+
+## Login default
+
+Berdasarkan dokumentasi proyek, akun default yang umum dipakai adalah:
+
+| Role | Username / Email | Password |
+|------|------------------|----------|
+| Admin | admin | admin123 |
+| Petugas | petugas | admin123 |
+| Anggota | ahmad@email.com | admin123 |
+
+Catatan: kredensial dapat berubah sesuai konfigurasi database yang Anda import.
+
+## Fitur utama yang relevan dengan repo
+
+### Untuk anggota
+
+- Registrasi dan login
+- Melihat katalog buku
+- Mencari buku
+- Peminjaman buku
+- Riwayat peminjaman
+- Rating dan komentar
+- Badge pencapaian
+
+### Untuk admin / petugas
+
+- Dashboard statistik
+- Manajemen data buku dan anggota
+- Proses peminjaman dan pengembalian
+- Pengelolaan informasi, banner, dan bantuan
+- Akses admin panel
+
+## Dokumentasi tambahan
+
+Repo ini juga dilengkapi dengan dokumen pendukung seperti:
+
+- `admin/DOKUMENTASI_PERPUSTAKAAN_DAERAH_VERSI1.pdf`
+- `admin/DOKUMENTASI_DATABASE_PERPUSTAKAAN_DAERAH_VERSI1.pdf`
+- `admin/DAFTAR_TABEL.md`
+- `admin/DAFTAR_FUNGSI_FILE.md`
+- `admin/PERENCANAAN_PROYEK_PERPUSTAKAAN_DAERAH_V5.md`
+
+Dokumen-dokumen tersebut dapat membantu memahami struktur sistem, skema database, dan alur pengembangan aplikasi.
+
+## Kontribusi
+
+Proyek ini masih bersifat local project / project assignment. Jika Anda ingin mengembangkan lebih lanjut:
+
+1. Fork repository ini
+2. Buat branch baru
+3. Lakukan perubahan
+4. Commit dan push
+5. Buat pull request
+
+## Lisensi
+
+Hak cipta © 2026. Semua hak dilindungi undang-undang.
+
+Aplikasi ini dibuat untuk kebutuhan sistem informasi perpustakaan daerah dan dapat dimodifikasi sesuai kebutuhan proyek Anda.

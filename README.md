@@ -1,170 +1,132 @@
-# Perpustakaan Daerah UKK
+# 📚 Perpustakaan Daerah
 
-Sistem informasi perpustakaan daerah berbasis PHP dan MySQL untuk mengelola katalog buku, peminjaman, pengembalian, anggota, notifikasi, dan administrasi perpustakaan secara terstruktur.
+> Sistem informasi perpustakaan berbasis PHP Native dan MySQL untuk mengelola katalog, anggota, peminjaman, pengembalian, serta administrasi perpustakaan secara terintegrasi.
 
-Project utama berada di folder `admin/` dan dirancang untuk kebutuhan operasional perpustakaan daerah dengan fitur CRUD, laporan sederhana, serta antarmuka web yang mudah digunakan.
+![Preview Aplikasi](https://github.com/farahquinn14528-ui/perppus_daerahukk/blob/main/Screenshot%202026-08-28%20085937.png?raw=true)
 
-## Fitur utama
+## ✨ Fitur
 
-- Katalog buku dan pencarian buku
-- Peminjaman dan pengembalian buku
-- Manajemen anggota / akun pengguna
-- Dashboard admin dan statistik umum
-- Sistem notifikasi dan badge/achievement
-- Rating dan komentar buku
-- Pengelolaan informasi, bantuan, dan profil
-- Dokumentasi proyek dan database yang tersedia di dalam repo
+### Pengguna
 
-## Teknologi yang digunakan
+- 🔐 Registrasi dan login
+- 📖 Katalog serta pencarian buku
+- 📚 Peminjaman dan pengembalian buku
+- 🕘 Riwayat peminjaman
+- ⭐ Rating dan komentar buku
+- 🏆 Badge pencapaian
+- 🔔 Notifikasi pengguna
+- 👤 Pengelolaan profil
 
-- PHP 8+
-- MySQL / MariaDB
-- HTML5
-- CSS3
-- JavaScript / jQuery
-- Bootstrap
-- Apache / XAMPP
+### Admin & Petugas
 
-## Struktur repository
+- 📊 Dashboard administrasi
+- 🗂️ CRUD buku, kategori, penerbit, dan rak
+- ✅ Persetujuan pengembalian
+- 💰 Perhitungan denda
+- 👥 Manajemen anggota dan akun
+- 📰 Pengelolaan informasi, banner, layanan, dan FAQ
+- 📄 Generate dokumentasi PDF
+
+## 🛠️ Teknologi
+
+| Komponen | Teknologi |
+| --- | --- |
+| Backend | PHP 8+ Native |
+| Database | MySQL / MariaDB |
+| Frontend | HTML5, CSS3, Bootstrap |
+| JavaScript | JavaScript, jQuery |
+| Server | Apache / XAMPP |
+| PDF | dompdf |
+
+## 🏗️ Struktur Fitur
 
 ```text
-perppus_daerahukk/
-├── admin/                              # Aplikasi utama (PHP)
-│   ├── .htaccess
-│   ├── README.md
-│   ├── akun.php
-│   ├── badge.php
-│   ├── database.sql
-│   ├── detail_buku.php
-│   ├── help.php
-│   ├── index.php
-│   ├── informasi.php
-│   ├── katalog_buku.php
-│   ├── landing.php
-│   ├── login.php
-│   ├── pengembalian.php
-│   ├── pinjam.php
-│   ├── proses_pinjam.php
-│   ├── register.php
-│   ├── riwayat_peminjaman.php
-│   ├── ...
-│   └── migrasi_*.sql
-├── DOKUMENTASI_PERPUSTAKAAN_DAERAH_VERSI1.pdf
-├── Screenshot 2026-08-28 085937.png
-├── README.md
-└── .gitignore
+Perpustakaan Daerah
+├── Autentikasi
+│   ├── Login
+│   ├── Registrasi
+│   └── Logout
+├── Katalog Buku
+│   ├── Daftar buku
+│   ├── Pencarian
+│   └── Detail buku
+├── Transaksi
+│   ├── Peminjaman
+│   ├── Pengembalian
+│   └── Riwayat
+├── Interaksi Pengguna
+│   ├── Rating & komentar
+│   ├── Badge
+│   └── Notifikasi
+└── Admin Panel
+    ├── Dashboard
+    ├── Manajemen data
+    ├── Informasi perpustakaan
+    └── Laporan / PDF
 ```
 
-## Persyaratan
+## 🚀 Menjalankan Project
 
-Sebelum menjalankan proyek, pastikan lingkungan berikut sudah tersedia:
+### Persyaratan
 
 - PHP 8.0 atau lebih tinggi
 - MySQL 5.7+ atau MariaDB 10.3+
-- Apache / XAMPP
-- Browser modern (Chrome, Edge, Firefox)
+- Apache dengan XAMPP atau server PHP sejenis
 
-## Cara menjalankan
-
-### 1. Clone atau unduh repository
+### Instalasi
 
 ```bash
 git clone https://github.com/farahquinn14528-ui/perppus_daerahukk.git
 ```
 
-### 2. Siapkan server lokal
-
-Buka XAMPP Control Panel, lalu aktifkan:
-
-- Apache
-- MySQL
-
-### 3. Buat database
-
-Buka phpMyAdmin, lalu buat database baru dengan nama misalnya:
-
-```sql
-perpustakaan_daerah
-```
-
-Kemudian import file SQL pada folder `admin/database.sql`.
-
-### 4. Jalankan aplikasi
-
-Letakkan folder `admin/` ke direktori web server, misalnya:
-
-```text
-C:\xampp\htdocs\perppus_daerahukk\
-```
-
-Lalu buka browser ke:
-
-```text
-http://localhost/perppus_daerahukk/
-```
-
-Jika aplikasi berjalan dari folder `admin/` secara langsung, biasanya URL menjadi:
+1. Pindahkan folder project ke `C:\xampp\htdocs\`.
+2. Jalankan **Apache** dan **MySQL** melalui XAMPP.
+3. Buat database bernama `perpustakaan_daerah` melalui phpMyAdmin.
+4. Import file `admin/database.sql`.
+5. Buka aplikasi melalui browser:
 
 ```text
 http://localhost/perppus_daerahukk/admin/
 ```
 
-## Login default
+## 📁 Struktur Repository
 
-Berdasarkan dokumentasi proyek, akun default yang umum dipakai adalah:
+```text
+perppus_daerahukk/
+├── admin/                         # Source code aplikasi PHP
+│   ├── database.sql               # Skema dan data database
+│   ├── login.php                  # Autentikasi
+│   ├── katalog_buku.php           # Katalog buku
+│   ├── pinjam.php                 # Peminjaman
+│   ├── pengembalian.php           # Pengembalian
+│   └── ...
+├── Screenshot 2026-08-28 085937.png
+├── DOKUMENTASI_PERPUSTAKAAN_DAERAH_VERSI1.pdf
+└── README.md
+```
 
-| Role | Username / Email | Password |
-|------|------------------|----------|
-| Admin | admin | admin123 |
-| Petugas | petugas | admin123 |
-| Anggota | ahmad@email.com | admin123 |
+## 📖 Dokumentasi
 
-Catatan: kredensial dapat berubah sesuai konfigurasi database yang Anda import.
+- [Dokumentasi aplikasi](./DOKUMENTASI_PERPUSTAKAAN_DAERAH_VERSI1.pdf)
+- [Dokumentasi admin](./admin/README.md)
+- [Daftar fungsi file](./admin/DAFTAR_FUNGSI_FILE.md)
+- [Daftar tabel database](./admin/DAFTAR_TABEL.md)
+- [Perencanaan proyek](./admin/PERENCANAAN_PROYEK_PERPUSTAKAAN_DAERAH_V5.md)
 
-## Fitur utama yang relevan dengan repo
+## 🔑 Akun Demo
 
-### Untuk anggota
+> Kredensial berikut mengikuti dokumentasi proyek dan dapat berbeda setelah database diubah.
 
-- Registrasi dan login
-- Melihat katalog buku
-- Mencari buku
-- Peminjaman buku
-- Riwayat peminjaman
-- Rating dan komentar
-- Badge pencapaian
+| Peran | Username / Email | Password |
+| --- | --- | --- |
+| Admin | `admin` | `admin123` |
+| Petugas | `petugas` | `admin123` |
+| Anggota | `ahmad@email.com` | `admin123` |
 
-### Untuk admin / petugas
+## 📌 Status
 
-- Dashboard statistik
-- Manajemen data buku dan anggota
-- Proses peminjaman dan pengembalian
-- Pengelolaan informasi, banner, dan bantuan
-- Akses admin panel
+✅ Versi 1.0 — siap dikembangkan lebih lanjut untuk kebutuhan perpustakaan daerah.
 
-## Dokumentasi tambahan
+## 📄 Lisensi
 
-Repo ini juga dilengkapi dengan dokumen pendukung seperti:
-
-- `admin/DOKUMENTASI_PERPUSTAKAAN_DAERAH_VERSI1.pdf`
-- `admin/DOKUMENTASI_DATABASE_PERPUSTAKAAN_DAERAH_VERSI1.pdf`
-- `admin/DAFTAR_TABEL.md`
-- `admin/DAFTAR_FUNGSI_FILE.md`
-- `admin/PERENCANAAN_PROYEK_PERPUSTAKAAN_DAERAH_V5.md`
-
-Dokumen-dokumen tersebut dapat membantu memahami struktur sistem, skema database, dan alur pengembangan aplikasi.
-
-## Kontribusi
-
-Proyek ini masih bersifat local project / project assignment. Jika Anda ingin mengembangkan lebih lanjut:
-
-1. Fork repository ini
-2. Buat branch baru
-3. Lakukan perubahan
-4. Commit dan push
-5. Buat pull request
-
-## Lisensi
-
-Hak cipta © 2026. Semua hak dilindungi undang-undang.
-
-Aplikasi ini dibuat untuk kebutuhan sistem informasi perpustakaan daerah dan dapat dimodifikasi sesuai kebutuhan proyek Anda.
+© 2026 Perpustakaan Daerah. All rights reserved.
